@@ -33,6 +33,7 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiceIm
             parameters = {},
             responses = {
                     @ApiResponse(responseCode = "200", ref = "okAPI"),
+                    @ApiResponse(responseCode = "401", ref = "unauthorizedAPI"),
                     @ApiResponse(responseCode = "500", ref = "internalServerErrorAPI")
             }
     )
@@ -53,6 +54,7 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiceIm
             },
             responses = {
                     @ApiResponse(responseCode = "200", ref = "okAPI"),
+                    @ApiResponse(responseCode = "401", ref = "unauthorizedAPI"),
                     @ApiResponse(responseCode = "500", ref = "internalServerErrorAPI")
             }
     )
@@ -73,6 +75,7 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiceIm
             },
             responses = {
                     @ApiResponse(responseCode = "200", ref = "okAPI"),
+                    @ApiResponse(responseCode = "401", ref = "unauthorizedAPI"),
                     @ApiResponse(responseCode = "404", ref = "notFoundAPI"),
                     @ApiResponse(responseCode = "500", ref = "internalServerErrorAPI")
             }
@@ -97,6 +100,7 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiceIm
             responses = {
                     @ApiResponse(responseCode = "201", ref = "createdAPI"),
                     @ApiResponse(responseCode = "400", ref = "badRequestAPI"),
+                    @ApiResponse(responseCode = "401", ref = "unauthorizedAPI"),
                     @ApiResponse(responseCode = "500", ref = "internalServerErrorAPI")
             }
     )
@@ -121,6 +125,7 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiceIm
             responses = {
                     @ApiResponse(responseCode = "200", ref = "updatedAPI"),
                     @ApiResponse(responseCode = "400", ref = "badRequestAPI"),
+                    @ApiResponse(responseCode = "401", ref = "unauthorizedAPI"),
                     @ApiResponse(responseCode = "404", ref = "notFoundAPI"),
                     @ApiResponse(responseCode = "500", ref = "internalServerErrorAPI")
             }
@@ -151,6 +156,7 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiceIm
             },
             responses = {
                     @ApiResponse(responseCode = "204", ref = "noContentAPI"),
+                    @ApiResponse(responseCode = "401", ref = "unauthorizedAPI"),
                     @ApiResponse(responseCode = "404", ref = "notFoundAPI"),
                     @ApiResponse(responseCode = "500", ref = "internalServerErrorAPI")
             }

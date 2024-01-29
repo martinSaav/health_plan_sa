@@ -12,5 +12,4 @@ public class ErrorDto {
     private String statusCode;
     private String status;
     private String message;
-
 }

@@ -39,22 +39,27 @@ public class SwaggerConfig {
                                 new Example().value("{\"code\" : 201, \"Status\" : \"Created!\", \"Message\" : \"Se creo un registro con exito!\"}")))
         );
 
-        ApiResponse notFoundAPI = new ApiResponse().content(
+        ApiResponse noContentAPI = new ApiResponse().content(
                 new Content().addMediaType(MediaType.APPLICATION_JSON_VALUE,
                         new io.swagger.v3.oas.models.media.MediaType().addExamples("default",
-                                new Example().value("{\"code\" : 404, \"Status\" : \"NotFound!\", \"Message\" : \"No se encontro ningun registro!\"}")))
+                                new Example().value("{\"code\" : 204, \"Status\" : \"NoContent!\", \"Message\" : \"No hay contenido con que responder!\"}")))
         );
-
         ApiResponse badRequestAPI = new ApiResponse().content(
                 new Content().addMediaType(MediaType.APPLICATION_JSON_VALUE,
                         new io.swagger.v3.oas.models.media.MediaType().addExamples("default",
                                 new Example().value("{\"code\" : 400, \"Status\" : \"BadRequest!\", \"Message\" : \"El request no es valido!\"}")))
         );
 
-        ApiResponse noContentAPI = new ApiResponse().content(
+        ApiResponse unauthorizedAPI = new ApiResponse().content(
                 new Content().addMediaType(MediaType.APPLICATION_JSON_VALUE,
                         new io.swagger.v3.oas.models.media.MediaType().addExamples("default",
-                                new Example().value("{\"code\" : 204, \"Status\" : \"NoContent!\", \"Message\" : \"No hay contenido con que responder!\"}")))
+                                new Example().value("{\"code\" : 401, \"Status\" : \"Unauthorized!\", \"Message\" : \"Las credenciales no son validas!\"}")))
+        );
+
+        ApiResponse notFoundAPI = new ApiResponse().content(
+                new Content().addMediaType(MediaType.APPLICATION_JSON_VALUE,
+                        new io.swagger.v3.oas.models.media.MediaType().addExamples("default",
+                                new Example().value("{\"code\" : 404, \"Status\" : \"NotFound!\", \"Message\" : \"No se encontro ningun registro!\"}")))
         );
 
         ApiResponse internalServerErrorAPI = new ApiResponse().content(
@@ -67,6 +72,7 @@ public class SwaggerConfig {
         components.addResponses("okAPI", okAPI);
         components.addResponses("notFoundAPI", notFoundAPI);
         components.addResponses("createdAPI", createdAPI);
+        components.addResponses("UnauthorizedAPI", unauthorizedAPI);
         components.addResponses("badRequestAPI", badRequestAPI);
         components.addResponses("updatedAPI", updatedAPI);
         components.addResponses("noContentAPI", noContentAPI);

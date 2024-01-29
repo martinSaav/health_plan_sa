@@ -8,14 +8,15 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
 import java.io.Serializable;
 import java.util.List;
 
 
-public abstract class BaseServiceImpl<E extends Base, ID extends Serializable> implements BaseService<E, ID> {
+public abstract class
+BaseServiceImpl<E extends Base, ID extends Serializable> implements BaseService<E, ID> {
 
     protected BaseRepository<E, ID> baseRepository;
+
 
     public BaseServiceImpl(BaseRepository<E, ID> baseRepository) {
         this.baseRepository = baseRepository;
@@ -26,17 +27,9 @@ public abstract class BaseServiceImpl<E extends Base, ID extends Serializable> i
         return baseRepository.findAll();
     }
 
-
     @Override
-    public Page<E> findAll(Pageable pageable) throws Exception {
-
-        try {
-
-            return baseRepository.findAll(pageable);
-
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
+    public Page<E> findAll(Pageable pageable) {
+        return baseRepository.findAll(pageable);
     }
 
     @Override

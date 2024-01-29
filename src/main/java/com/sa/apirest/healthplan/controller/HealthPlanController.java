@@ -1,6 +1,7 @@
 package com.sa.apirest.healthplan.controller;
 
 
+import com.sa.apirest.healthplan.exception.SearchNoElements;
 import com.sa.apirest.healthplan.exception.UnknownErrorException;
 import com.sa.apirest.healthplan.model.HealthPlan;
 import com.sa.apirest.healthplan.service.HealthPlanServiceImpl;
@@ -32,6 +33,8 @@ public class HealthPlanController extends BaseControllerImpl<HealthPlan, HealthP
             },
             responses = {
                     @ApiResponse(responseCode = "200", ref = "okAPI"),
+                    @ApiResponse(responseCode = "401", ref = "unauthorizedAPI"),
+                    @ApiResponse(responseCode = "404", ref = "notFoundAPI"),
                     @ApiResponse(responseCode = "500", ref = "internalServerErrorAPI")
             }
     )
@@ -39,6 +42,8 @@ public class HealthPlanController extends BaseControllerImpl<HealthPlan, HealthP
     public ResponseEntity<?> search(@RequestParam String filter) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(healthPlanService.search(filter));
+        } catch (IllegalArgumentException e) {
+            throw new SearchNoElements(e.getMessage(), HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             throw new UnknownErrorException(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -52,6 +57,8 @@ public class HealthPlanController extends BaseControllerImpl<HealthPlan, HealthP
             },
             responses = {
                     @ApiResponse(responseCode = "200", ref = "okAPI"),
+                    @ApiResponse(responseCode = "401", ref = "unauthorizedAPI"),
+                    @ApiResponse(responseCode = "404", ref = "notFoundAPI"),
                     @ApiResponse(responseCode = "500", ref = "internalServerErrorAPI")
             }
     )
@@ -59,6 +66,8 @@ public class HealthPlanController extends BaseControllerImpl<HealthPlan, HealthP
     public ResponseEntity<?> search(@RequestParam String filter, Pageable pageable) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(healthPlanService.search(filter, pageable));
+        } catch (IllegalArgumentException e) {
+            throw new SearchNoElements(e.getMessage(), HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             throw new UnknownErrorException(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }

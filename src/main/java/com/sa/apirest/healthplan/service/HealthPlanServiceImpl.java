@@ -22,13 +22,19 @@ public class HealthPlanServiceImpl extends BaseServiceImpl<HealthPlan, Integer> 
     }
 
     public List<HealthPlan> search(String filter) {
+        List<HealthPlan> healthPlans = healthPlanRepository.searchNative(filter);
+        if (healthPlans.isEmpty()) {
+            throw new IllegalArgumentException("No se encontraron registros con el filtro: " + filter);
+        }
         return healthPlanRepository.searchNative(filter);
     }
 
     @Override
     public Page<HealthPlan> search(String filter, Pageable pageable) {
+        Page<HealthPlan> healthPlans = healthPlanRepository.searchNative(filter, pageable);
+        if (healthPlans.isEmpty()) {
+            throw new IllegalArgumentException("No se encontraron registros con el filtro: " + filter + " y paginación: " + pageable.toString());
+        }
         return healthPlanRepository.searchNative(filter, pageable);
     }
-
-
 }

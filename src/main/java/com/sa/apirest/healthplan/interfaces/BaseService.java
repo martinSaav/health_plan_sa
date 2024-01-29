@@ -3,7 +3,6 @@ package com.sa.apirest.healthplan.interfaces;
 import com.sa.apirest.healthplan.model.Base;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
 import java.io.Serializable;
 import java.util.List;
 

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ControllerAdvice {
 
-
     @ExceptionHandler(BusinessException.class)
     public ResponseEntity<ErrorDto> userNotFoundException(BusinessException e) {
         ErrorDto errorDto = ErrorDto.builder()
