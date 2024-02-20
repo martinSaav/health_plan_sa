@@ -19,7 +19,7 @@
 ### h) La solución debe ser gestionada con Maven.
 ### i) El producto debe ser entregado para un entorno producƟvo.
 ### j) Deberá adjuntar las pruebas de rendimiento del microservicio realizadas con JMeter.
-### k) La API debe ser del Ɵpo RESTful estándar OPEN API OAS2 o 3.
+### k) La API debe ser del tipo RESTful estándar OPEN API OAS2 o 3.
 ### l) Deberá usar la especificación JPA en Hibernate para la integración con la capa de datos desde la solución SpringBoot.
 ### m) Se deberá usar la versión de Java 17, SpringBoot 3.0.2 o 3.0.3 y Spring Framework 6.0.5
 ### n) Una vez terminado y probado, el proyecto debe commitearse a un repositorio privado en Github (llamado como el proyecto y agregar como colaboradores a: arydegtiar@sistemasactivos.com, Javier.camacho@sistemasactivos.com, ramiro.foschini@sistemasactivos.com y Alfredo.mazza@sistemasactivos.com, luego cargar el proyecto en la tarea asignada de Classroom y enviar el link al repositorio en un comentario privado.
