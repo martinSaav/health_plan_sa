@@ -1,9 +1,9 @@
 package com.sa.apirest.healthplan.repository;
 
+
 import com.sa.apirest.healthplan.model.Base;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
-
 import java.io.Serializable;
 
 

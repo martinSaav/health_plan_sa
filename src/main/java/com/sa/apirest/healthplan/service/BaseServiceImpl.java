@@ -1,5 +1,6 @@
 package com.sa.apirest.healthplan.service;
 
+
 import com.sa.apirest.healthplan.interfaces.BaseService;
 import com.sa.apirest.healthplan.model.Base;
 import com.sa.apirest.healthplan.repository.BaseRepository;
@@ -12,8 +13,7 @@ import java.io.Serializable;
 import java.util.List;
 
 
-public abstract class
-BaseServiceImpl<E extends Base, ID extends Serializable> implements BaseService<E, ID> {
+public abstract class BaseServiceImpl<E extends Base, ID extends Serializable> implements BaseService<E, ID> {
 
     protected BaseRepository<E, ID> baseRepository;
 

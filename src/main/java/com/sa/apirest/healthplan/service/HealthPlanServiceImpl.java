@@ -1,5 +1,6 @@
 package com.sa.apirest.healthplan.service;
 
+
 import com.sa.apirest.healthplan.interfaces.HealthPlanService;
 import com.sa.apirest.healthplan.model.HealthPlan;
 import com.sa.apirest.healthplan.repository.BaseRepository;
@@ -8,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
+
 
 @Service
 public class HealthPlanServiceImpl extends BaseServiceImpl<HealthPlan, Integer> implements HealthPlanService {
